@@ -1,0 +1,32 @@
+# Multi-omics Integration Pipeline - Python Dependencies
+# 多组学联合分析流程 - Python依赖包
+
+# ============== 基础科学计算 ==============
+pandas>=1.5.0
+numpy>=1.23.0
+scipy>=1.9.0
+
+# ============== 可视化 ==============
+matplotlib>=3.6.0
+seaborn>=0.12.0
+# matplotlib-venn3>=0.1  # 如果需要Venn图
+
+# ============== 机器学习/统计 ==============
+scikit-learn>=1.1.0
+statsmodels>=0.13.0
+
+# ============== 网络分析 ==============
+networkx>=2.8.0
+
+# ============== 生信分析 ==============
+clusterProfiler>=4.0.0
+org.Hs.eg.db>=3.15.0  # Human
+# org.Mm.eg.db>=3.15.0  # Mouse (如果需要)
+# org.Rn.eg.db>=3.15.0  # Rat (如果需要)
+
+# ============== 数据获取 (可选) ==============
+# requests>=2.28.0  # 用于STRING API等外部数据库查询
+
+# ============== 其他工具 ==============
+# openpyxl>=3.0.0  # Excel文件读写
+# xlrd>=2.0.0      # 旧版Excel支持
