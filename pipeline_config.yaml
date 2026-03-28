@@ -1,0 +1,51 @@
+# Multi-omics Integration Pipeline Configuration
+# 多组学联合分析流程配置文件
+
+# ============== 通用配置 ==============
+[general]
+project_name = "multiomics_integration"
+species = "human"                    # human, mouse, rat
+species_taxid = 9606                 # NCBI Taxonomy ID
+output_dir = "results"
+log_dir = "logs"
+input_dir = "input"
+
+# ============== 差异分析配置 ==============
+[differential]
+fc_threshold = 1.5                  # 差异倍数阈值 (原始值)
+log2fc_threshold = 0.585            # log2转换后的阈值 (log2(1.5) ≈ 0.585)
+pvalue_threshold = 0.05              # P值阈值
+fdr_threshold = 0.05                 # FDR阈值
+method = "t-test"                    # t-test, wilcox, limma
+
+# ============== 相关性分析配置 ==============
+[correlation]
+method = "spearman"                 # pearson, spearman, kendall
+threshold = 0.6                      # 相关性阈值
+pvalue_threshold = 0.05             # P值阈值
+
+# ============== 富集分析配置 ==============
+[enrichment]
+pvalue_cutoff = 0.05                 # 富集分析P值截断值
+qvalue_cutoff = 0.05                 # 富集分析Q值截断值
+min_overlap = 3                      # 最小重叠基因数
+ontologies = ["BP", "MF", "CC"]     # GO分析本体论
+
+# ============== 网络分析配置 ==============
+[network]
+ppi_score_threshold = 0.7           # PPI相互作用置信度
+ksea_min_sites = 3                   # KSEA最少底物数
+motif_window = 7                    # Motif分析窗口大小
+
+# ============== 修饰分析配置 ==============
+[modification]
+phosphorylation_fc = 1.5            # 磷酸化差异阈值
+lactylation_fc = 1.5                # 乳酸化差异阈值
+localization_threshold = 0.75        # 定位可信度阈值
+crosstalk_window = 10               # 串扰分析窗口 (氨基酸)
+
+# ============== Biomarker配置 ==============
+[biomarker]
+fdr_threshold = 0.05                # Biomarker筛选FDR
+min_correlation = 0.5               # 最小相关性
+top_n = 50                          # 展示Top N Biomarker
